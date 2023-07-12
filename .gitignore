@@ -1,0 +1,5 @@
+dist/index.html
+dist/middag
+node_modules/*
+.parcel-cache/*
+db/*
