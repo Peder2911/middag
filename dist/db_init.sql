@@ -19,9 +19,8 @@ create table if not exists ingredient (
 );
 
 create table if not exists recipe_ingredient (
-   id int generated always as identity primary key,
-   ingredient int not null,
-   recipe int not null,
+   ingredient int,
+   recipe int,
    amount numeric,
    measuring_unit measuring_unit not null,
    foreign key(ingredient) 
@@ -31,3 +30,6 @@ create table if not exists recipe_ingredient (
       references recipe(id)
       on delete cascade
 );
+
+alter table recipe_ingredient drop constraint if exists "id_pkey";
+alter table recipe_ingredient add constraint "id_pkey" primary key (ingredient, recipe);

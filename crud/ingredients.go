@@ -150,7 +150,7 @@ func (ih IngredientHandler) create_ingredient(w http.ResponseWriter, r *http.Req
       w.WriteHeader(http.StatusInternalServerError)
    }
    response_data, err := json.Marshal(response_model)
-   if err != nil{ 
+   if err != nil{
       log.Printf("Failed to marshal JSON of inserted ingredient: %s", err)
       w.WriteHeader(http.StatusInternalServerError)
       return
@@ -164,7 +164,7 @@ func (ih IngredientHandler) delete_ingredient(w http.ResponseWriter, r *http.Req
    ingredient_id, err := strconv.Atoi(ingredient_id_string)
    if err != nil {
       w.WriteHeader(http.StatusNotFound)
-      return 
+      return
    }
    result := ih.Database.QueryRow(`
       delete from ingredient where id = $1 returning id
