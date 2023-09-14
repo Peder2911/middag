@@ -3,3 +3,5 @@ dist/middag
 node_modules/*
 .parcel-cache/*
 db/*
+*.db
+tmp/
