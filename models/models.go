@@ -6,6 +6,12 @@ type Ingredient struct {
    gorm.Model
    Name string
 }
+func (i Ingredient) GetPrimaryKey() uint {
+   return i.ID
+}
+func (i Ingredient) SetPrimaryKey(id uint) {
+   i.ID = id
+}
 
 type MeasuringUnit struct {
    gorm.Model
